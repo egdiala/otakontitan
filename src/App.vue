@@ -1,16 +1,12 @@
 <template>
   <v-app :style="{background: $vuetify.theme.themes.dark.background}">
-    <v-app-bar :style="{background: $vuetify.theme.themes.dark.background}">
-      <div class="mx-auto">
-        <v-toolbar-title>Ota-Kon Titan</v-toolbar-title>
-      </div>
+    <v-app-bar dense color="background" style="display: none;">
+        <v-toolbar-title class="mx-auto">Ota-Kon Titan</v-toolbar-title>
     </v-app-bar>
 
       <v-main>
         <router-view></router-view>
-      </v-main>
-
-    <v-bottom-navigation absolute shift color="yellow" background-color="background">
+    <v-bottom-navigation app shift color="yellow" background-color="background">
         <v-btn :to="{ path: '/' }">
             <span>Home</span>
             <v-icon>mdi-home</v-icon>
@@ -26,6 +22,8 @@
             <v-icon>mdi-file-image</v-icon>
         </v-btn>
   </v-bottom-navigation>
+      </v-main>
+
   </v-app>
 </template>
 
