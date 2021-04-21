@@ -10,7 +10,7 @@
         <router-view></router-view>
       </v-main>
 
-    <v-bottom-navigation app shift color="yellow" background-color="background">
+    <v-bottom-navigation absolute shift color="yellow" background-color="background">
         <v-btn :to="{ path: '/' }">
             <span>Home</span>
             <v-icon>mdi-home</v-icon>
