@@ -1,6 +1,10 @@
 <template>
   <v-app :style="{background: $vuetify.theme.themes.dark.background}">
-    <v-app-bar style="display: none;"></v-app-bar>
+    <v-app-bar :style="{background: $vuetify.theme.themes.dark.background}">
+      <div class="mx-auto">
+        <v-toolbar-title>Ota-Kon Titan</v-toolbar-title>
+      </div>
+    </v-app-bar>
 
       <v-main>
         <router-view></router-view>
