@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
     name: 'Booking',
     data() {
@@ -51,14 +50,8 @@ export default {
         this.validate();
         setTimeout(() => {
           if (this.valid) {
-              this.loading = true;
-            axios.get(`https://otakon-api.herokuapp.com/book?name=${this.name}&email=${this.email}`).then(res => {
-              this.loading = false;
-              console.log(res);
-            }).catch(err => {
-              this.loading = false;
-              console.log(err);
-            })          
+            this.loading = true;
+            location.href = `https://otakon-api.herokuapp.com/book?name=${this.name}&email=${this.email}`;     
           }          
         }, 300);
       },
