@@ -1,34 +1,72 @@
 <template>
-  <div class="booking d-flex justify-center d-flex align-center">
-    <h1>COMING SOON!!</h1>
-  </div>
+  <v-container class="booking d-flex justify-center d-flex align-center">
+    <v-row>
+      <v-col class="mx-auto" cols="12" xl="10" lg="10" md="3" sm="3">
+        <v-form ref="form"
+    v-model="valid"
+    lazy-validation @submit="submit">
+          <v-text-field
+            v-model.trim="name" :rules="nameRules" outlined
+            label="Name"
+          ></v-text-field>
+          <v-text-field
+            v-model.trim="email" :rules="emailRules" type="email" outlined
+            label="E-mail"
+            required
+          ></v-text-field>
+        <p class="text-center mb-5"><small>By booking a ticket online for the OtakonTitan Convention, you agree to pay a sum of</small> <strong>₦300</strong>.</p>
+              <v-btn
+            block color="#e73c7e" class="text-capitalize" :loading="loading"
+            @click.prevent="submit"
+          >
+            Book Now
+          </v-btn>
+        </v-form>        
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
+<script>
+import axios from 'axios';
+export default {
+    name: 'Booking',
+    data() {
+      return {
+        loading: false,
+        valid: false,
+        name: '',
+        nameRules: [
+          v => !!v || 'Name is required',
+        ],
+        email: '',
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ],
+      }
+    },
+    methods: {
+      submit() {
+        this.validate();
+        setTimeout(() => {
+          if (this.valid) {
+            axios.get(`https://otakon-api.herokuapp.com/book?name=${this.name}&email=${this.email}`).then(res => {
+              console.log(res);
+            }).catch(err => {
+              console.log(err);
+            })          
+          }          
+        }, 300);
+      },
+      validate () {
+        this.$refs.form.validate();
+      },
+    },
+}
+</script>
+
 <style scoped>
-h1 {
-    animation: flow 8s ease-in-out infinite;
-    background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
-    background-size: 300%;
-
-    -webkit-background-clip: text;
-            background-clip: text;
-      -webkit-text-fill-color: transparent;
-}
-
-@keyframes flow {
-  0% {
-    background-position: 0 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0 50%;
-  }
-}
-
 .booking {
   height: 100%;
 }
