@@ -52,8 +52,10 @@ export default {
         setTimeout(() => {
           if (this.valid) {
             axios.get(`https://otakon-api.herokuapp.com/book?name=${this.name}&email=${this.email}`).then(res => {
+              this.loading = false;
               console.log(res);
             }).catch(err => {
+              this.loading = false;
               console.log(err);
             })          
           }          
