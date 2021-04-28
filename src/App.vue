@@ -27,6 +27,14 @@
 
       <v-main>
         <router-view></router-view>
+          <v-footer padless>
+            <v-col
+              class="text-center"
+              cols="12"
+            >
+              {{ new Date().getFullYear() }} | <strong>LeatherWorks Media</strong> - <a href="https://twitter.com/e_diala?s=09" target="_blank">👨🏾‍💻</a> & <a href="https://twitter.com/tobecci?s=08" target="_blank">👨🏾‍💻</a> 
+            </v-col>
+          </v-footer>
       </v-main>
  <v-overlay :opacity="opacity" :value="overlay">
        <v-icon @click="overlay = false" size="1.5x" class="custom-class" style="position: fixed; top: 4%; right: 1.5em; z-index: 99999;">mdi-window-close</v-icon>

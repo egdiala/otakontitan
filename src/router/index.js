@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Booking from '../views/Booking.vue'
 import Gallery from '../views/Gallery.vue'
+import Success from '../views/Success.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
         path: '/gallery',
         name: 'Gallery',
         component: Gallery
+    },
+    {
+        path: '/booking-success',
+        name: 'Success',
+        component: Success
     },
 ]
 

@@ -94,10 +94,35 @@
             Other Events
           </h2>
           <p class="subheading font-weight-regular">
-            Anime booth - OST Sing along - Guess the OST - Pool volley ball - snooker - Board games - Cosplay and lots more 
+            Anime booth - OST Sing along - Guess the OST - Pool volley ball - Snooker - Board games - Cosplay and lots more 
           </p>        
         </div>
       </v-col>
+    </v-row>
+    <v-row class="text-center">
+      <v-col
+        class="mb-5 mx-auto"
+        cols="12" xl="12" lg="12" md="12" sm="12" 
+      >
+        <div>
+          <h2 class="headline font-weight-bold mb-3">
+            Meet The Organisers
+          </h2>       
+        </div>
+      </v-col>
+      <v-col v-for="guy in guys" :key="guy"
+        class="mb-5 mx-auto"
+        cols="6" xl="3" lg="3" md="3" sm="3" 
+      > 
+          <v-avatar size="100">
+            <v-img
+              :src="require(`@/assets/commitee/${guy.src}`)"
+              alt="John"
+            ></v-img>
+          </v-avatar>
+          <h4 class="font-weight-light">{{guy.name}}</h4>
+      </v-col>
+
     </v-row>
     </v-container>
   </div>
@@ -125,9 +150,22 @@
       foods: [{
         src: 'food2.jpg',
       },{
-        src: 'food3.gif',
+        src: 'food3.png',
       },{
         src: 'food1.jpg',
+      }],
+      guys: [{
+        src: 'emeka.jpeg',
+        name: 'Emeka'
+      },{
+        src: 'emma.jpg',
+        name: 'Emma'
+      },{
+        src: 'filly.jpeg',
+        name: 'Sawyer (Filly Studio)'
+      },{
+        src: 'oteri.jpg',
+        name: 'Oteri (Cypher_the_Creator)'
       }],
     }),
   }
